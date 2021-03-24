@@ -9,7 +9,7 @@ const ProductList = props => {
             Axios.get("http://localhost:8000/api/products")
                 .then(res => setProducts(res.data.results))
                 .catch(err =>console.log(err))
-    },[])
+    },[props])
 
     const handleDestroyProduct = id => {
         Axios.delete(`http://localhost:8000/api/products/${id}`)

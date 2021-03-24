@@ -2,7 +2,7 @@ import {useState} from 'react';
 import Axios from 'axios';
 import ProductForm from '../components/ProductForm';
 import ProductList from '../components/ProductList';
-import { navigate } from '@reach/router';
+// import { navigate } from '@reach/router';
 
 const Create = props => {
     const [product,setProduct] = useState({
@@ -10,6 +10,8 @@ const Create = props => {
         price: "",
         description: ""
     })
+
+
 
     const [errors,setErrors] = useState({
         title: "",
@@ -28,18 +30,19 @@ const Create = props => {
         e.preventDefault();
 
         Axios.post("http://localhost:8000/api/products",product)
-            .then(res => navigate('/'))
+            .then(res => {
+                setProduct({
+                    title: "",
+                    price: "",
+                    description: ""
+                })
+            })
             .catch(err => {
                 console.log(err.response.data.errors);
                 setErrors(err.response.data.errors);
             })
         
-        // CLEARS CREATE FORM AFTER SUBMIT
-        setProduct({
-            title: "",
-            price: "",
-            description: ""
-        });
+
     }
 
     return(
@@ -53,7 +56,9 @@ const Create = props => {
                 errors={errors}
             />
 
-            <ProductList />
+            <ProductList 
+               data={product} 
+            />
         </>
     )
 }
