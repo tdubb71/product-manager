@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Axios from 'axios';
 import ProductForm from '../components/ProductForm';
+import ProductList from '../components/ProductList';
 import { navigate } from '@reach/router';
 
 const Create = props => {
@@ -51,6 +52,8 @@ const Create = props => {
                 handleSubmit={handleSubmit}
                 errors={errors}
             />
+
+            <ProductList />
         </>
     )
 }
