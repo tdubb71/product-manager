@@ -13,6 +13,13 @@ const Show = props => {
             })
     },[props])
 
+    const handleDestroyProduct = id => {
+        Axios.delete(`http://localhost:8000/api/products/${id}`)
+            .then(res => setProduct(res.data.results))
+            .then(res => navigate('/'))
+            .catch(err => console.log(err))
+    }
+
     return (
         product ?
         <div className="card col-4 mx-auto">
@@ -20,6 +27,11 @@ const Show = props => {
                 <h2 className="card-title">{product.title}</h2>
                 <p className="card-text">Price: ${product.price}</p>
                 <p className="card-text">Description: {product.description}</p>
+                <button
+                    className="btn btn-danger btn-outline-dark"
+                    onClick={() => handleDestroyProduct(product._id)}>
+                    Delete
+                </button>
             </div>
         </div> : <h2>Loading...</h2>
     )

@@ -22,28 +22,27 @@ const ProductList = props => {
             
             <div>
             <hr className="border border-darken-4 mt-5"/>
+                <h3>All Products</h3>
                 <table className="table col-3 mx-auto mt-3">
                     <thead>
-                        <tr>
-                            <h3>All Products</h3>
-                        </tr>
                     </thead>
                     <tbody>
                         {
                             products.map((j,i) => {
                                 return <tr key={i}>
-                                            {/* <td>{j.title}</td> */}
                                             <td>
-                                                {/* <Link
-                                                    to={`/edit/${j._id}`}
+                                            <Link to={`/show/${j._id}`}>
+                                                    {j.title}
+                                            </Link>
+                                            </td>
+                                            <td>
+
+                                                <Link
+                                                    to={`/${j._id}/edit`}
                                                     className="btn btn-warning btn-outline-info">Edit</Link>
                                                 <button
                                                     className="btn btn-danger btn-outline-dark"
                                                     onClick={() => handleDestroyProduct(j._id)}>Delete</button>
-                                                 */}
-                                                <Link to={`/show/${j._id}`}>
-                                                    {j.title}
-                                                </Link>
                                             </td>
                                         </tr>
                             })
