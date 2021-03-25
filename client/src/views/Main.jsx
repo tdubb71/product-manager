@@ -11,8 +11,6 @@ const Create = props => {
         description: ""
     })
 
-
-
     const [errors,setErrors] = useState({
         title: "",
         price: "",
@@ -41,8 +39,6 @@ const Create = props => {
                 console.log(err.response.data.errors);
                 setErrors(err.response.data.errors);
             })
-        
-
     }
 
     return(
@@ -56,9 +52,7 @@ const Create = props => {
                 errors={errors}
             />
 
-            <ProductList 
-               data={product} 
-            />
+            <ProductList data={product} />
         </>
     )
 }

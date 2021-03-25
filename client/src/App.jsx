@@ -6,15 +6,15 @@ import Show from './views/Show';
 import Edit from './views/Edit';
 
 function App() {
-  return (
-    <div className="App">
-        <Router>
-            <Main path='/' />
-            <Show path='/show/:id' />
-            <Edit path='/:id/edit' />
-        </Router>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Router>
+                <Main path='/' />
+                <Show path='/show/:id' />
+                <Edit path='/:id/edit' />
+            </Router>
+        </div>
+    );
 }
 
 export default App;

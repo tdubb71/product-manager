@@ -19,7 +19,6 @@ const ProductList = props => {
 
     return(
         products ?
-            
             <div>
             <hr className="border border-darken-4 mt-5"/>
                 <h3>All Products</h3>
@@ -31,18 +30,21 @@ const ProductList = props => {
                             products.map((j,i) => {
                                 return <tr key={i}>
                                             <td>
-                                            <Link to={`/show/${j._id}`}>
-                                                    {j.title}
-                                            </Link>
+                                                <Link to={`/show/${j._id}`}>
+                                                        {j.title}
+                                                </Link>
                                             </td>
                                             <td>
-
                                                 <Link
                                                     to={`/${j._id}/edit`}
-                                                    className="btn btn-warning btn-outline-info">Edit</Link>
+                                                    className="btn btn-warning btn-outline-info">
+                                                    Edit
+                                                </Link>
                                                 <button
                                                     className="btn btn-danger btn-outline-dark"
-                                                    onClick={() => handleDestroyProduct(j._id)}>Delete</button>
+                                                    onClick={() => handleDestroyProduct(j._id)}>
+                                                    Delete
+                                                </button>
                                             </td>
                                         </tr>
                             })
